@@ -1,0 +1,62 @@
+body{
+    background-color: #2b5b84;
+    font-family:Helvetica Neue; 
+    font-size:14;
+}
+.bg-dark{
+    background: #2b5b84 !important;
+}
+.logo{
+    font-size: 100px;
+    color: #DAA520;
+}
+.input-edit{
+    font-size: 13px !important;
+}
+li .nav-link{
+    font-size: 14px !important;
+}
+
+.dropdown-menu .dropdown-item{
+    font-size: 14px !important;
+
+}
+.btn{
+    font-size: 12px !important;
+
+}
+p{
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .navbar-nav .nav-item{
+    font-weight: 600 !important;
+}
+.navbar-brand{
+    font-weight: 600 !important;
+
+}  
+.description{
+    color: #666666;
+}
+
+.hhr{
+    color: #2b5b84;
+}
+.btn-outline-warning{
+    border-color: #DAA520 !important;
+    color: #DAA520 im !important;
+}
+.btn-outline-warning:hover{
+    background-color: #DAA520;
+    color: white;
+}
+.title{
+    color: #666;
+}
+.btn-info{
+    background-color: #2b5b84;
+    border-color: #2b5b84;
+}
+.btn-info:hover{
+    background-color: #2b5b84;
+}

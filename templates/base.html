@@ -1,0 +1,176 @@
+{% load static %}
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap 4 Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'css/style.css' %}"
+    />
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+  <style>
+  
+  
+  </style>
+</head>
+
+<body style="background:#2b5b84;">
+   
+
+   <!--for logo and serach-->
+
+
+ <div class="container mt-2 text-center border border-secondary">
+
+ <!--row start here-->
+ <div class="row">
+ <!--col start here-->
+     <div class="col-sm-6">
+     <i class="fa fa-book logo" aria-hidden="true"></i><br>
+ <h5 class="text-white">Python Land</h5>
+ <p class="text-white">A website to learn python</p>
+ 
+     </div>
+     <div class="col-sm-6 mt-2">
+     
+
+     
+
+
+
+      <form class="mt-4">
+      <input class="form-control mr-sm-2 input-edit mb-1" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-warning mt-1 my-2 my-sm-0" type="submit">Search</button>
+       </form>
+     </div>
+    </div> 
+</div>
+ </div> 
+<div class="container bg-white shadow">
+
+  
+  <hr class="mt-2">
+    <!--navbar start here-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-2 pt-0 pb-0">
+  <a class="navbar-brand" href="{% url 'blog' %}">Blog</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Contact<span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+  
+   
+
+  </div>
+</nav>
+
+<!--navbar end here-->
+
+
+
+
+
+
+<div class="row">  <!--row 1 start here-->
+
+ 
+    <div class="col-sm-9"> <!--col statr here-->
+   
+    
+    {% block content %}
+    
+    {% endblock content %}
+
+
+
+
+    </div>   <!--column 1 end here-->
+
+    <div class="col-sm-3 shadow">
+
+     <h5 class="mt-3">Categories</h5> <!--category-->
+     <hr>
+    
+     
+     {% regroup object_list by cat_name as country_list %}
+
+<ul>
+{% for country in country_list %}
+    <li style="list-style-type:none; margin-left:-37px;"><strong class="title">{{ country.grouper }} ({{ country.list|length}}) </strong>
+    <ul>
+        {% for blog in country.list %}
+          <li style="list-style-type:none; margin-left:-33px;"><a href="#" class="text-dark">{{ blog.blog_title }}</li></a>
+        {% endfor %}
+    </ul>
+    </li>
+{% endfor %}
+</ul>
+
+  
+
+    
+
+     <h5 class="mt-5">Recent Blog</h5>
+     <hr>
+     <p>ds, algo, python</p>
+     
+      
+
+    </div>     <!--column 2 end here-->
+
+
+
+</div>     <!--row 1 end here-->
+
+
+
+
+
+
+
+
+
+<div class="jumbotron mt-5" style="background:#DAA520;">
+    <hr class="my-2">
+    <p>More info</p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
+    </p>
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+</html>
