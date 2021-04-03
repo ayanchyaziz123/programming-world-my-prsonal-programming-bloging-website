@@ -19,3 +19,10 @@ class Blog(models.Model):
     blog_views = models.IntegerField(default=0)
     blog_thumbnil = models.ImageField(blank=True, null=True)
     blog_timeDate = models.DateTimeField(auto_now_add=True, auto_now=False, blank=True)
+
+class Contact(models.Model):
+    name = models.CharField(max_length=30)
+    email = models.EmailField()
+    subject = models.CharField(max_length=200)
+    message = models.CharField(max_length=500)
+    reply = models.BooleanField(default=False)

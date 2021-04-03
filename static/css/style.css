@@ -78,3 +78,11 @@ p{
 .ur{
     text-decoration: none !important;
 }
+.bg-c{
+    background-color: #2b5b84 !important;
+}
+.alert-success{
+    background-color: #2b5b84 !important;
+    color: #fff;
+
+}

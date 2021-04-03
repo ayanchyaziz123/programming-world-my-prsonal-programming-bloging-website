@@ -46,19 +46,19 @@
      </div>
      <div class="col-sm-6 mt-2">
      
-
-     
-
-
-
-      <form class="mt-3" method="GET" action="{% url 'search' %}">
-      <input class="form-control mr-sm-2 input-edit mb-1" type="search" placeholder="Search" aria-label="Search" name='search' required>
-      <button class="btn btn-outline-warning mt-1 my-2 my-sm-0" type="submit">Search</button>
-       </form>
+        <form method="GET" action="{% url 'search' %}">
+    <div class="input-group input-group-sm mt-5"  >
+      <input type="text" class="form-control" placeholder="Search" name='search' required>
+      <div class="input-group-btn">
+        <button class="btn btn-outline-warning" type="submit"><i class="fa fa-search" aria-hidden="true"></i>
+</button>
+      </div>
+    </div>
+  </form>
        <div class="mt-3">
-       <span class="text-style-two"><a href="mailto:aaziz9642@gmail.com" class="text-warning"><i class="fa fa-envelope pr-2" aria-hidden="true"></i> </a></span>
-<span class="text-style-two"><a href="https://linkedin.com/in/azizur-rahman-720636165" target="_blank" class="text-warning"><i class="fa fa-linkedin-square" aria-hidden="true"></i> </a></span> 
-<span class="text-style-two"><a href="https://github.com/ayanchyaziz123" target="_blank" class="text-warning"><i class="fa fa-github pl-2" aria-hidden="true"></i></a></span>
+       <span class="text-style-two"><a href="mailto:aaziz9642@gmail.com" class="text-warning ur"><i class="fa fa-envelope pr-2" aria-hidden="true"></i> </a></span>
+<span class="text-style-two"><a href="https://linkedin.com/in/azizur-rahman-720636165"  target="_blank" class="text-warning ur"><i class="fa fa-linkedin-square" aria-hidden="true"></i> </a></span> 
+<span class="text-style-two"><a href="https://github.com/ayanchyaziz123" target="_blank" class="text-warning ur"><i class="fa fa-github pl-2" aria-hidden="true"></i></a></span>
      </div>
      </div>
     </div> 
@@ -78,7 +78,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Contact<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'contact' %}">Contact<span class="sr-only">(current)</span></a>
       </li>
     </ul>
   
@@ -89,7 +89,17 @@
 
 <!--navbar end here-->
 
+<!--message-->
 
+{% for message in messages %}
+
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show mt-2" role="alert" >
+  <strong><i class="fa fa-comments" aria-hidden="true"></i> Message : </strong> {{ message }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+ {% endfor %}
 
 
 
@@ -161,7 +171,40 @@
 
 
 
+     <script>
+      
+     function validateForm(){
 
+      var name =  document.forms["myForm"]["name"].value;
+      var email =  document.forms["myForm"]["email"].value;
+      var subject =  document.forms["myForm"]["subject"].value;
+      var message =  document.forms["myForm"]["message"].value;
+
+      if(name.length < 4){
+        document.getElementById("incorrect_name").innerHTML = "Name should be more than 3 characters";
+        return false;
+      }
+      if(name.length > 20){
+        document.getElementById("incorrect_name").innerHTML = "Name should be less than 20 characters";
+        return false;
+      }
+      if(email.length > 40){
+        document.getElementById("incorrect_email").innerHTML = "Email should be less than 40 characters";
+        return false;
+      }
+      if(subject.length < 6){
+        document.getElementById("incorrect_subject").innerHTML = "Subject should be more than 5 characters";
+        return false;
+      }
+      if(message.length < 6){
+        document.getElementById("incorrect_message").innerHTML = "Message should be more than 5 characters";
+        return false;
+      }
+     }
+
+
+
+    </script>
 
 
 
