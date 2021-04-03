@@ -60,3 +60,21 @@ p{
 .btn-info:hover{
     background-color: #2b5b84;
 }
+.text-warning{
+    color: #DAA520 !important;
+}
+
+.example .pagination>li>a,
+.example .pagination>li>span {
+  border: 1px solid #2b5b84 !important;
+}
+.pagination>li.active>a {
+  background: #2b5b84 !important;
+  color: #fff !important;
+}
+.page-item .page-link{
+    color: #2b5b84 !important;
+}
+.ur{
+    text-decoration: none !important;
+}

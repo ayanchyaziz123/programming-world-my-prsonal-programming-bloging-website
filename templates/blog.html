@@ -4,15 +4,15 @@
 {% block content %}
 
 
-   {% for blog in blog %}
+   {% for blogs in blogs %}
 
     <div class="mt-4 border border-secondary p-2">
-         <h5 class="title">{{blog.blog_title |truncatechars:100}}</h5>
-         <p  class="description"><i class="fa fa-calendar" aria-hidden="true"></i> {{ blog.blog_timeDate}}  <i class="fa fa-bookmark" aria-hidden="true"></i>   {{ blog.cat_name }}
+         <h5 class="title">{{blogs.blog_title |truncatechars:100}}</h5>
+         <p  class="description"><i class="fa fa-calendar" aria-hidden="true"></i> {{ blogs.blog_timeDate}}  <i class="fa fa-bookmark" aria-hidden="true"></i>   {{ blogs.cat_name }}
                             
                             </p>
-         <p>{{blog.blog_body | safe |truncatechars:300}}</p>
-         <a href="{% url 'more' blog.id %}" class="btn btn-info">More</a>
+         <p>{{blogs.blog_body | safe |truncatechars:300}}</p>
+         <a href="{% url 'more' blogs.id %}" class="btn btn-info">More</a>
 
 
      
@@ -25,6 +25,50 @@
     
     
     {% endfor %}
+
+    <!--pagination-->
+<div class="mt-4 ml-3">
+ <nav aria-label="Page navigation example text-center">
+
+       {% if blogs.has_other_pages %}
+  <ul class="pagination">
+    {% if blogs.has_previous %}
+
+      <li class="page-item ">
+      <a class="page-link" href="?page={{ blogs.previous_page_number }}" tabindex="-1">&laquo;</a>
+    </li>
+
+    {% else %}
+        <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1">&laquo;</a>
+    </li>
+    {% endif %}
+    {% for i in blogs.paginator.page_range %}
+      {% if blogs.number == i %}
+
+      <li class="page-item active">
+      <a class="page-link" href="#">{{ i }} <span class="sr-only">(current)</span></a>
+    </li>
+      {% else %}
+      <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if blogs.has_next %}
+       <li class="page-item">
+      <a class="page-link" href="?page={{ blogs.next_page_number }}">&raquo;</a>
+    </li>
+    {% else %}
+      <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1">&raquo;</a>
+    </li>
+    {% endif %}
+  </ul>
+{% endif %}
+</nav>
+
+</div> <!--ending paginations-->
+
+  <hr>
 
 
 

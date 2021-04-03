@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+{% if blog|length < 1 %}
+
+<div class="p-2  border border-secondary mt-4">
+       <h3 style="margin-top:40;">
+
+          Your search -<u>{{query}}</u>- did not match any documents
+
+
+       </h3><br>
+       <div class="card ml-4 p-2">
+       <span><i class="fa fa-plus-circle" aria-hidden="true"></i> Make sure that all words are spelled correctly.</span>
+<span><i class="fa fa-plus-circle" aria-hidden="true"></i> Try different keywords.</span>
+<span><i class="fa fa-plus-circle" aria-hidden="true"></i> Try more general keywords.</span>
+ <span><i class="fa fa-plus-circle" aria-hidden="true"></i> Try fewer keywords.</span>
+
+
+
+        <a class="text-style" href="{% url 'blog' %}"><span><i class="fa fa-plus-circle" aria-hidden="true"></i> Go to Blog Page</span></a>
+</div>
+</div>
+
+
+
+
+{% else %}
+<h3 class="mt-3 title">Total search results : {{total}}</h3>
+<h5 class="title">Your search query was : <u> {{query}} </u></h5>
+
+
+   {% for blog in blog %}
+
+    <div class="mt-4 border border-secondary p-2">
+         <h5 class="title">{{blog.blog_title |truncatechars:100}}</h5>
+         <p  class="description"><i class="fa fa-calendar" aria-hidden="true"></i> {{ blog.blog_timeDate}}  <i class="fa fa-bookmark" aria-hidden="true"></i>   {{ blog.cat_name }}
+                            
+                            </p>
+         <p>{{blog.blog_body | safe |truncatechars:300}}</p>
+         <a href="{% url 'more' blog.id %}" class="btn btn-info">More</a>
+
+
+     
+
+
+    </div>
+
+    <hr>
+    
+    
+    
+    {% endfor %}
+    {% endif %}
+
+
+
+
+
+{% endblock content %}
