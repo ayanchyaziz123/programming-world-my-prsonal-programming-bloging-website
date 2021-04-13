@@ -18,7 +18,7 @@ class Blog(models.Model):
     blog_body = RichTextUploadingField(blank=True, null=True)
     blog_views = models.IntegerField(default=0)
     blog_thumbnil = models.ImageField(blank=True, null=True)
-    blog_timeDate = models.DateTimeField(auto_now_add=True, auto_now=False, blank=True)
+    blog_timeDate = models.DateField(auto_now_add=True, auto_now=False, blank=True)
 
 class Contact(models.Model):
     name = models.CharField(max_length=30)

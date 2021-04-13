@@ -6,8 +6,10 @@ from django.core.paginator import Paginator
 from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, reverse
 from .forms import CommentForm
+from django.core.mail import BadHeaderError, send_mail
 
 # Create your views here.
+
 
 #for blog page
 def blog(request):
@@ -15,7 +17,7 @@ def blog(request):
     blog = Blog.objects.all()
     categorys = Blog.objects.all().select_related('cat_name')
     blogs = Blog.objects.all()
-    paginator = Paginator(blogs, 3)
+    paginator = Paginator(blogs, 10)
     page = request.GET.get('page')
     blogs = paginator.get_page(page)
     context = {
