@@ -129,14 +129,14 @@
      <h5 class="mt-3"><strong class="title">Categories</strong></h5> <!--category-->
      <hr>
     
-     
-     {% regroup object_list by cat_name as country_list %}
+     <!--categories-->
+     {% regroup object_list by cat_name as cat_all %}
 
 <ul>
-{% for country in country_list %}
-    <li style="list-style-type:none; margin-left:-37px;"><strong class="title">{{ country.grouper }} ({{ country.list|length}}) </strong>
+{% for categories in cat_all %}
+    <li style="list-style-type:none; margin-left:-37px;"><strong class="title">{{ categories.grouper }} ({{ categories.list|length}}) </strong>
     <ul>
-        {% for blog in country.list %}
+        {% for blog in categories.list %}
           <li style="list-style-type:none; margin-left:-33px;"><a href="{% url 'more' blog.id %}" class="text-dark ur">{{ blog.blog_title }}</li></a>
         {% endfor %}
     </ul>

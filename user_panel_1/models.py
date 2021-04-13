@@ -17,8 +17,10 @@ class Blog(models.Model):
     blog_author = models.CharField(max_length=200)
     blog_body = RichTextUploadingField(blank=True, null=True)
     blog_views = models.IntegerField(default=0)
-    blog_thumbnil = models.ImageField(blank=True, null=True)
     blog_timeDate = models.DateField(auto_now_add=True, auto_now=False, blank=True)
+
+    def __str__(self):
+        return self.blog_title
 
 class Contact(models.Model):
     name = models.CharField(max_length=30)
@@ -26,6 +28,9 @@ class Contact(models.Model):
     subject = models.CharField(max_length=200)
     message = models.CharField(max_length=500)
     reply = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.email
 
 class Comment(models.Model):
     blog = models.ForeignKey(Blog, related_name='comments', on_delete=models.CASCADE )
