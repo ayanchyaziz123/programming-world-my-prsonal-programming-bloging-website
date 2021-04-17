@@ -13,11 +13,12 @@ class Category(models.Model):
 class Blog(models.Model):
     cat_name = models.ForeignKey(Category, on_delete=models.CASCADE)
     blog_priority = models.IntegerField(blank=True, null=True)
+    blog_tags = models.CharField(max_length=200,  blank=True, null=True)
     blog_title = models.CharField(max_length=200)
     blog_author = models.CharField(max_length=200)
     blog_body = RichTextUploadingField(blank=True, null=True)
     blog_views = models.IntegerField(default=0)
-    blog_timeDate = models.DateField(auto_now_add=True, auto_now=False, blank=True)
+    blog_date = models.DateField(auto_now_add=True, auto_now=False, blank=True)
 
     def __str__(self):
         return self.blog_title

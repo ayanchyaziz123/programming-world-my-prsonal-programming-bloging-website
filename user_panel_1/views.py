@@ -16,7 +16,7 @@ def blog(request):
     category = Category.objects.all()
     blog = Blog.objects.all()
     categorys = Blog.objects.all().select_related('cat_name')
-    blogs = Blog.objects.all().order_by('-blog_timeDate')
+    blogs = Blog.objects.all().order_by('-blog_date')
     paginator = Paginator(blogs, 10)
     page = request.GET.get('page')
     blogs = paginator.get_page(page)
@@ -119,8 +119,10 @@ def contact(request):
     }
     return render(request, 'contact.html', context)
 
+#date wise search
 
-
+#def date(request, slug):
+    #return HttpRequest("date")
 
 
 
