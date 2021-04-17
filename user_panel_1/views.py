@@ -121,8 +121,31 @@ def contact(request):
 
 #date wise search
 
-#def date(request, slug):
-    #return HttpRequest("date")
+def date(request, slug):
+    blog = Blog.objects.filter(blog_date__contains=slug)
+    category = Category.objects.all()
+    categorys = Blog.objects.all().select_related('cat_name')
+    print(categorys)
+    context = {
+        'category': category,
+        'blog': blog,
+        'object_list': categorys,
+    }
+    return render(request, 'extra.html', context)
+
+#tags wise search
+def tags(request, slug):
+    blog = Blog.objects.filter(blog_tags__contains=slug)
+    category = Category.objects.all()
+    categorys = Blog.objects.all().select_related('cat_name')
+    print(categorys)
+    context = {
+        'category': category,
+        'blog': blog,
+        'object_list': categorys,
+    }
+    return render(request, 'extra.html', context)
+
 
 
 

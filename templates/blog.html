@@ -9,7 +9,8 @@
     <div class="card shadow mt-4 rounded">
     <div class="card-body">
          <h5 class="title">{{blogs.blog_title |truncatechars:100}}</h5>
-         <p  class="description"><i class="fa fa-calendar" aria-hidden="true"></i> <a href="#" class="mr-2 ur description"> {{ blogs.blog_date}} </a> <i class="fa fa-bookmark" aria-hidden="true"></i> <a href="#" class="ur description">  {{ blogs.blog_tags}} </a>
+         <p  class="description"><i class="fa fa-calendar" aria-hidden="true"></i> <a href="{% url 'date' blogs.blog_date %}" class="mr-2 ur description"> {{ blogs.blog_date}} </a> <i class="fa fa-bookmark" aria-hidden="true"></i> 
+         <a href="{% url 'tags' blogs.blog_tags %}" class="ur description">  {{ blogs.blog_tags}} </a>
                             
                             </p>
          <p>{{blogs.blog_body | safe |truncatechars:300}}</p>
