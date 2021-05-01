@@ -16,6 +16,7 @@ class Blog(models.Model):
     blog_tags = models.CharField(max_length=200,  blank=True, null=True)
     blog_title = models.CharField(max_length=200)
     blog_author = models.CharField(max_length=200)
+    blog_descriptions = models.CharField(max_length=600);
     blog_body = RichTextUploadingField(blank=True, null=True)
     blog_views = models.IntegerField(default=0)
     blog_date = models.DateField(auto_now_add=True, auto_now=False, blank=True)
@@ -50,3 +51,5 @@ class Comment(models.Model):
 
     def __str__(self):
         return 'Comment by {}'.format(self.name)
+
+      

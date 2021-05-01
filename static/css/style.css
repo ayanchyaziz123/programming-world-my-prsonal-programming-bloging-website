@@ -58,7 +58,7 @@ p{
     border-color: #2b5b84;
 }
 .btn-info:hover{
-    background-color: #094070;
+    background-color: #003f75;
 }
 .text-warning{
     color: #DAA520 !important;
@@ -88,4 +88,7 @@ p{
 }
 .ur:hover{
     color: black;
+}
+.rounded{
+    border-radius: 12px !important;
 }
