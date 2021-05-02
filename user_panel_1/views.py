@@ -20,7 +20,7 @@ def blog(request):
     paginator = Paginator(blogs, 10)
     page = request.GET.get('page')
     blogs = paginator.get_page(page)
-    recentBlog = Blog.objects.all().order_by('-blog_date')
+    recentBlog = Blog.objects.all().order_by('-blog_date')[0:5]
     context = {
         'category': category,
         'blog': blog,
@@ -37,7 +37,7 @@ def more(request, slug):
     blog = Blog.objects.all()
     categorys = Blog.objects.all().select_related('cat_name')
     blogss = get_object_or_404(Blog, id=slug)
-    reacentBlog = Blog.objects.all().order_by('-blog_date')
+    reacentBlog = Blog.objects.all().order_by('-blog_date')[0:5]
     # list of active parent comments
     go_back = slug
     #print("hello world")
@@ -92,7 +92,7 @@ def search(request):
     total = blog.count()
     category = Category.objects.all()
     categorys = Blog.objects.all().select_related('cat_name')
-    reacentBlog = Blog.objects.all().order_by('-blog_date')
+    reacentBlog = Blog.objects.all().order_by('-blog_date')[0:5]
     print(categorys)
     context = {
         'category': category,
@@ -106,7 +106,7 @@ def search(request):
 
 #for contact
 def contact(request):
-    reacentBlog = Blog.objects.all().order_by('-blog_date')
+    reacentBlog = Blog.objects.all().order_by('-blog_date')[0:5]
     if request.method == 'POST':
         name = request.POST['name']
         email = request.POST['email']
@@ -130,7 +130,7 @@ def contact(request):
 #date wise search
 
 def date(request, slug):
-    reacentBlog = Blog.objects.all().order_by('-blog_date')
+    reacentBlog = Blog.objects.all().order_by('-blog_date')[0:5]
     blog = Blog.objects.filter(blog_date__contains=slug)
     category = Category.objects.all()
     categorys = Blog.objects.all().select_related('cat_name')
@@ -145,7 +145,7 @@ def date(request, slug):
 
 #tags wise search
 def tags(request, slug):
-    reacentBlog = Blog.objects.all().order_by('-blog_date')
+    reacentBlog = Blog.objects.all().order_by('-blog_date')[0:5]
     blog = Blog.objects.filter(blog_tags__contains=slug)
     category = Category.objects.all()
     categorys = Blog.objects.all().select_related('cat_name')

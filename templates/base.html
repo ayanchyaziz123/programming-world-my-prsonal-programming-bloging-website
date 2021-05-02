@@ -137,7 +137,7 @@
     <li style="list-style-type:none; margin-left:-37px;"><strong class="title">{{ categories.grouper }} ({{ categories.list|length}}) </strong>
     <ul>
         {% for blog in categories.list %}
-          <li style="margin-left:-33px;"><a href="{% url 'more' blog.id %}" class="ur tt">{{ blog.blog_title }}</li></a>
+          <li style="margin-left:-33px;"><a href="{% url 'more' blog.id %}"  target="_blank" class="ur tt">{{ blog.blog_title }}</li></a>
         {% endfor %}
     </ul>
     <br>
@@ -148,7 +148,7 @@
 <hr>
 <div class="card shadow rounded">
   <img class="card-img-top" src="{% static 'aya.jpeg' %}" alt="Card image cap">
-  <div class="card-body text-center">
+  <div class="card-body ">
     <p class="card-text ur">Azizur Rahman (Ayan)</p>
     <span class="ur">Student at <br> Metropoliton University, Bangladesh</span> <br>
     <div class="mt-2">
@@ -179,18 +179,33 @@
 
 
 
-<div class="jumbotron mt-5 pb-0 pt-0 text-center text-white" style="background:#DAA520;">
+<div class="jumbotron mt-5 pb-0 pt-0 text-white" style="background:#DAA520;">
    
-    <p class="lead mt-2 mb-2">
+   <div class="row">
+     <div class="col-sm-4">
+     <h5 class="mt-2">About Me</h5>
+     <a href="http://azizurrahmanayan.herokuapp.com/" target="_blank" class="text-white">my personal website</a>
+     
+     </div>
+     <div class="col-sm-4">
+      <p class="lead mt-2 mb-2">
         
-        <h5 class="mt-2">Recent Blog</h5>
+        <h5 class="mt-2">Recent Blogs</h5>
         {% for recentBlog in recentBlog %}
          <a href="{% url 'more' recentBlog.id %}" class="text-white">{{recentBlog.blog_title}}</a>
         <br>
         {% endfor %}
-        <p class="pt-2 pb-2"><a href="{% url 'blog' %}" class="text-white">programming world</a></p>
+       
 
     </p>
+     </div>
+     <div class="col-sm-4">
+      <p class="pt-2 pb-2"><a href="{% url 'blog' %}" class="text-white">Programming World</a><br>
+       <a href="{% url 'contact' %}" class="text-white">Contact</a></p>
+      
+     </div>
+   </div>
+   
 </div>
 
 
