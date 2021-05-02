@@ -137,7 +137,7 @@
     <li style="list-style-type:none; margin-left:-37px;"><strong class="title">{{ categories.grouper }} ({{ categories.list|length}}) </strong>
     <ul>
         {% for blog in categories.list %}
-          <li style="margin-left:-33px;"><a href="{% url 'more' blog.id %}" class="text-dark ur tt">{{ blog.blog_title }}</li></a>
+          <li style="margin-left:-33px;"><a href="{% url 'more' blog.id %}" class="ur tt">{{ blog.blog_title }}</li></a>
         {% endfor %}
     </ul>
     </li>
@@ -151,9 +151,9 @@
     <p class="card-text ur">Azizur Rahman (Ayan)</p>
     <span class="ur">Student at <br> Metropoliton University, Bangladesh</span> <br>
     <div class="mt-2">
-     <span class="text-style-two"><a href="mailto:aaziz9642@gmail.com" class="text-dark ur"><i class="fa fa-envelope pr-2" aria-hidden="true"></i> </a></span>
-<span class="text-style-two"><a href="https://linkedin.com/in/azizur-rahman-720636165"  target="_blank" class="text-dark ur"><i class="fa fa-linkedin-square" aria-hidden="true"></i> </a></span> 
-<span class="text-style-two"><a href="https://github.com/ayanchyaziz123" target="_blank" class="text-dark ur"><i class="fa fa-github pl-2" aria-hidden="true"></i></a></span>
+     <span class="text-style-two"><a href="mailto:aaziz9642@gmail.com" class="text-dark "><i class="fa fa-envelope pr-2" aria-hidden="true"></i> </a></span>
+<span class="text-style-two"><a href="https://linkedin.com/in/azizur-rahman-720636165"  target="_blank" class="text-dark "><i class="fa fa-linkedin-square" aria-hidden="true"></i> </a></span> 
+<span class="text-style-two"><a href="https://github.com/ayanchyaziz123" target="_blank" class="text-dark "><i class="fa fa-github pl-2" aria-hidden="true"></i></a></span>
   </div>
   </div>
 </div>
@@ -181,7 +181,14 @@
 <div class="jumbotron mt-5 pb-0 pt-0 text-center text-white" style="background:#DAA520;">
    
     <p class="lead mt-2 mb-2">
+        
+        <h5 class="mt-2">Recent Blog</h5>
+        {% for recentBlog in recentBlog %}
+         <a href="{% url 'more' recentBlog.id %}" class="text-white">{{recentBlog.blog_title}}</a>
+        <br>
+        {% endfor %}
         <p class="pt-2 pb-2"><a href="{% url 'blog' %}" class="text-white">programming world</a></p>
+
     </p>
 </div>
 

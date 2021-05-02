@@ -58,7 +58,8 @@ p{
     border-color: #2b5b84;
 }
 .btn-info:hover{
-    background-color: #003f75;
+    background-color: #003461;
+    transition-duration: 0.9s;
 }
 .text-warning{
     color: #DAA520 !important;
@@ -77,6 +78,7 @@ p{
 }
 .ur{
     text-decoration: none !important;
+    color: black;
 }
 .bg-c{
     background-color: #2b5b84 !important;
@@ -87,7 +89,10 @@ p{
 
 }
 .ur:hover{
-    color: #003f75;
+    color: #fff !important;
+    background: #2b5b84 !important;
+    padding: 2px;
+    transition-duration: 0.9s;
 }
 .rounded{
     border-radius: 12px !important;

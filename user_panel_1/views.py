@@ -16,15 +16,17 @@ def blog(request):
     category = Category.objects.all()
     blog = Blog.objects.all()
     categorys = Blog.objects.all().select_related('cat_name')
-    blogs = Blog.objects.all().order_by('blog_date')
+    blogs = Blog.objects.all().order_by('-blog_date')
     paginator = Paginator(blogs, 10)
     page = request.GET.get('page')
     blogs = paginator.get_page(page)
+    recentBlog = Blog.objects.all().order_by('-blog_date')
     context = {
         'category': category,
         'blog': blog,
         'object_list': categorys,
         'blogs': blogs,
+        'recentBlog': recentBlog,
     }
     return render(request, 'blog.html', context)
 
@@ -35,6 +37,7 @@ def more(request, slug):
     blog = Blog.objects.all()
     categorys = Blog.objects.all().select_related('cat_name')
     blogss = get_object_or_404(Blog, id=slug)
+    reacentBlog = Blog.objects.all().order_by('-blog_date')
     # list of active parent comments
     go_back = slug
     #print("hello world")
@@ -79,6 +82,7 @@ def more(request, slug):
                    'blog': blog,
                    'object_list': categorys,
                    'more':more,
+                   'recentBlog': reacentBlog,
                    })
     
 #for search
@@ -88,6 +92,7 @@ def search(request):
     total = blog.count()
     category = Category.objects.all()
     categorys = Blog.objects.all().select_related('cat_name')
+    reacentBlog = Blog.objects.all().order_by('-blog_date')
     print(categorys)
     context = {
         'category': category,
@@ -95,11 +100,13 @@ def search(request):
         'object_list': categorys,
         'query': query,
         'total': total,
+        'recentBlog': reacentBlog,
     }
     return render(request, 'search.html', context)
 
 #for contact
 def contact(request):
+    reacentBlog = Blog.objects.all().order_by('-blog_date')
     if request.method == 'POST':
         name = request.POST['name']
         email = request.POST['email']
@@ -116,12 +123,14 @@ def contact(request):
         context = {
         'category': category,
         'object_list': categorys,
+        'recentBlog': reacentBlog,
     }
     return render(request, 'contact.html', context)
 
 #date wise search
 
 def date(request, slug):
+    reacentBlog = Blog.objects.all().order_by('-blog_date')
     blog = Blog.objects.filter(blog_date__contains=slug)
     category = Category.objects.all()
     categorys = Blog.objects.all().select_related('cat_name')
@@ -130,11 +139,13 @@ def date(request, slug):
         'category': category,
         'blog': blog,
         'object_list': categorys,
+         'recentBlog': reacentBlog,
     }
     return render(request, 'extra.html', context)
 
 #tags wise search
 def tags(request, slug):
+    reacentBlog = Blog.objects.all().order_by('-blog_date')
     blog = Blog.objects.filter(blog_tags__contains=slug)
     category = Category.objects.all()
     categorys = Blog.objects.all().select_related('cat_name')
@@ -143,6 +154,7 @@ def tags(request, slug):
         'category': category,
         'blog': blog,
         'object_list': categorys,
+        'recentBlog': reacentBlog,
     }
     return render(request, 'extra.html', context)
 
