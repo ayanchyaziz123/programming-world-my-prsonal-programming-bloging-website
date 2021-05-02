@@ -137,7 +137,7 @@
     <li style="list-style-type:none; margin-left:-37px;"><strong class="title">{{ categories.grouper }} ({{ categories.list|length}}) </strong>
     <ul>
         {% for blog in categories.list %}
-          <li style="margin-left:-33px;"><a href="{% url 'more' blog.id %}"  target="_blank" class="ur tt">{{ blog.blog_title }}</li></a>
+          <li style="margin-left:-33px;"><a href="{% url 'more' blog.id %}"  target="_blank" class="ur" style="font-size: 18px;">{{ blog.blog_title }}</li></a>
         {% endfor %}
     </ul>
     <br>
@@ -150,7 +150,7 @@
   <img class="card-img-top" style="max-height:120px;" src="{% static 'aya.jpeg' %}" alt="Card image cap">
   <div class="card-body ">
     <p class="card-text">Azizur Rahman (Ayan)</p>
-    <span >Student at <br> Metropoliton University, Bangladesh</span> <br>
+    <span>Student at <br> Metropoliton University, Bangladesh</span> <br>
     <div class="mt-2">
      <span class="text-style-two"><a href="mailto:aaziz9642@gmail.com" class="text-dark "><i class="fa fa-envelope pr-2" aria-hidden="true"></i> </a></span>
 <span class="text-style-two"><a href="https://linkedin.com/in/azizur-rahman-720636165"  target="_blank" class="text-dark "><i class="fa fa-linkedin-square" aria-hidden="true"></i> </a></span> 
