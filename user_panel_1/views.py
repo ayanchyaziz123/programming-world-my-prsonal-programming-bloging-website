@@ -90,7 +90,6 @@ def search(request):
     reacentBlog = Blog.objects.all().order_by('-blog_date')[0:5]
     print(categorys)
     context = {
-        'category': category,
         'blog': blog,
         'object_list': categorys,
         'query': query,
