@@ -14,7 +14,7 @@ from django.core.mail import BadHeaderError, send_mail
 #for blog page
 def blog(request):
     categorys = Blog.objects.all().select_related('cat_name')
-    categorys = categorys.order_by('cat_name__cat_priority', 'cat_name') #sort all sata
+    categorys = categorys.order_by('cat_name__cat_priority', 'cat_name') #sort all data
     blogs = Blog.objects.all().order_by('-blog_date')
     paginator = Paginator(blogs, 10)
     page = request.GET.get('page')
@@ -30,10 +30,9 @@ def blog(request):
 #for readmore
 def more(request, slug):
     more = Blog.objects.filter(id=slug).first() 
-    category = Category.objects.all()
-    blog = Blog.objects.all()
-    categorys = Blog.objects.all().select_related('cat_name')
     blogss = get_object_or_404(Blog, id=slug)
+    categorys = Blog.objects.all().select_related('cat_name')
+    categorys = categorys.order_by('cat_name__cat_priority', 'cat_name') #sort all data
     reacentBlog = Blog.objects.all().order_by('-blog_date')[0:5]
     # list of active parent comments
     go_back = slug
@@ -75,7 +74,6 @@ def more(request, slug):
                   {
                    'comments': comments,
                    'comment_form': comment_form,
-                   'category': category,
                    'blog': blog,
                    'object_list': categorys,
                    'more':more,
@@ -87,8 +85,8 @@ def search(request):
     query = request.GET['search']
     blog = Blog.objects.filter(Q(blog_title__icontains=query) | Q(blog_body__contains=query))
     total = blog.count()
-    category = Category.objects.all()
     categorys = Blog.objects.all().select_related('cat_name')
+    categorys = categorys.order_by('cat_name__cat_priority', 'cat_name') #sort all data
     reacentBlog = Blog.objects.all().order_by('-blog_date')[0:5]
     print(categorys)
     context = {
@@ -115,10 +113,9 @@ def contact(request):
         return redirect('blog')
         #print(name, email, subject, message)
     else:    
-        category = Category.objects.all()
         categorys = Blog.objects.all().select_related('cat_name')
+        categorys = categorys.order_by('cat_name__cat_priority', 'cat_name') #sort all data
         context = {
-        'category': category,
         'object_list': categorys,
         'recentBlog': reacentBlog,
     }
@@ -129,11 +126,10 @@ def contact(request):
 def date(request, slug):
     reacentBlog = Blog.objects.all().order_by('-blog_date')[0:5]
     blog = Blog.objects.filter(blog_date__contains=slug)
-    category = Category.objects.all()
     categorys = Blog.objects.all().select_related('cat_name')
+    categorys = categorys.order_by('cat_name__cat_priority', 'cat_name') #sort all data
     print(categorys)
     context = {
-        'category': category,
         'blog': blog,
         'object_list': categorys,
          'recentBlog': reacentBlog,
@@ -144,11 +140,10 @@ def date(request, slug):
 def tags(request, slug):
     reacentBlog = Blog.objects.all().order_by('-blog_date')[0:5]
     blog = Blog.objects.filter(blog_tags__contains=slug)
-    category = Category.objects.all()
     categorys = Blog.objects.all().select_related('cat_name')
+    categorys = categorys.order_by('cat_name__cat_priority', 'cat_name') #sort all data
     print(categorys)
     context = {
-        'category': category,
         'blog': blog,
         'object_list': categorys,
         'recentBlog': reacentBlog,
