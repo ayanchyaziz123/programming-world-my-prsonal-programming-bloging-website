@@ -7,16 +7,16 @@ from django.db.models.base import Model
 
 class Category(models.Model):
     cat_name = models.CharField(max_length=300)   
-    cat_priority = models.IntegerField(blank=False, null=False);
+    cat_priority = models.IntegerField(blank=True, null=True);
     def __str__(self):
         return self.cat_name
 
 class Blog(models.Model):
     cat_name = models.ForeignKey(Category, on_delete=models.CASCADE)
+    blog_author = models.CharField(max_length=200)
     blog_priority = models.IntegerField(blank=True, null=True)
     blog_tags = models.CharField(max_length=200,  blank=True, null=True)
     blog_title = models.CharField(max_length=200)
-    blog_author = models.CharField(max_length=200)
     blog_descriptions = models.CharField(max_length=600);
     blog_body = RichTextUploadingField(blank=True, null=True)
     blog_views = models.IntegerField(default=0)
