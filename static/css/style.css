@@ -92,7 +92,7 @@ p{
 .ur:hover{
     color: #fff !important;
     background: #2b5b84 !important;
-    padding: 2px;
+    padding: 5px !important;
     transition-duration: 0.9s;
 }
 .rounded{
