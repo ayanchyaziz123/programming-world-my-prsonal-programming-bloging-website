@@ -98,4 +98,9 @@ p{
 .rounded{
     border-radius: 12px !important;
 }
+.activee{
+    color: #fff !important;
+    background: #2b5b84 !important;
+    padding: 5px !important;
+}
 
