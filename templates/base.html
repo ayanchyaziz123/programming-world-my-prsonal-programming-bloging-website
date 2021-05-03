@@ -137,7 +137,7 @@
     <li style="list-style-type:none; margin-left:-37px;"><strong class="title">{{ categories.grouper }} ({{ categories.list|length}}) </strong>
     <ul style="list-style-type:none;">
         {% for blog in categories.list %}
-          <li style="margin-left:-33px;"><a href="{% url 'more' blog.id %}"  target="_blank" class="ur" style="font-size: 18px;">{{ blog.blog_title }}</li></a>
+          <li style="margin-left:-33px;"><a href="{% url 'more' blog.id %}"  target="_blank" class="ur {% if blog.id == more.id %}active{% endif %}" style="font-size: 18px;">{{ blog.blog_title }}</li></a>
           <div class="mt-2"></div>
         {% endfor %}
         <hr>
