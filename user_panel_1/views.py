@@ -13,24 +13,21 @@ from django.core.mail import BadHeaderError, send_mail
 
 #for blog page
 def blog(request):
-    category = Category.objects.all()
-    blog = Blog.objects.all()
     categorys = Blog.objects.all().select_related('cat_name')
+    categorys = categorys.order_by('cat_name') #sort all data 
     blogs = Blog.objects.all().order_by('-blog_date')
     paginator = Paginator(blogs, 10)
     page = request.GET.get('page')
     blogs = paginator.get_page(page)
     recentBlog = Blog.objects.all().order_by('-blog_date')[0:5]
     context = {
-        'category': category,
-        'blog': blog,
         'object_list': categorys,
         'blogs': blogs,
         'recentBlog': recentBlog,
     }
     return render(request, 'blog.html', context)
 
-#for readmores
+#for readmore
 def more(request, slug):
     more = Blog.objects.filter(id=slug).first() 
     category = Category.objects.all()

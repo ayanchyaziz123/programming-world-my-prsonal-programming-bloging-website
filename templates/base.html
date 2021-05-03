@@ -135,15 +135,18 @@
 <ul>
 {% for categories in cat_all %}
     <li style="list-style-type:none; margin-left:-37px;"><strong class="title">{{ categories.grouper }} ({{ categories.list|length}}) </strong>
-    <ul>
+    <ul style="list-style-type:none;">
         {% for blog in categories.list %}
           <li style="margin-left:-33px;"><a href="{% url 'more' blog.id %}"  target="_blank" class="ur" style="font-size: 18px;">{{ blog.blog_title }}</li></a>
+          <div class="mt-2"></div>
         {% endfor %}
+        <hr>
     </ul>
-    <br>
     </li>
 {% endfor %}
 </ul>
+
+
 <h5 class="mt-5"><strong class="title">About Me</strong></h5>
 <hr>
 <div class="card shadow rounded">
@@ -194,6 +197,8 @@
         {% for recentBlog in recentBlog %}
          <a href="{% url 'more' recentBlog.id %}" target="_blank" class="text-white">{{recentBlog.blog_title}}</a>
         <br>
+        <div class="mt-2">
+        </div>
         {% endfor %}
        
 
