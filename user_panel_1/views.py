@@ -14,7 +14,7 @@ from django.core.mail import BadHeaderError, send_mail
 #for blog page
 def blog(request):
     categorys = Blog.objects.all().select_related('cat_name')
-    categorys = categorys.order_by('cat_name') #sort all data 
+    categorys = categorys.order_by('cat_name__cat_priority', 'cat_name') #sort all sata
     blogs = Blog.objects.all().order_by('-blog_date')
     paginator = Paginator(blogs, 10)
     page = request.GET.get('page')
