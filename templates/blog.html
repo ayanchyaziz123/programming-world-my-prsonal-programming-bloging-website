@@ -13,7 +13,7 @@
          <a href="{% url 'tags' blogs.blog_tags %}" class="ur description">  {{ blogs.blog_tags}} </a>
                             
                             </p>
-         <div>{{blogs.blog_descriptions | safe |truncatechars:200}}</div>
+         <div>{{blogs.blog_descriptions |truncatechars:200}}</div>
          <a href="{% url 'more' blogs.id %}"  target="_blank" class="btn btn-info mt-3">More</a>
 
   </div>
