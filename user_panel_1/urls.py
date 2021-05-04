@@ -7,6 +7,7 @@ urlpatterns = [
     path('more/<str:slug>', views.more, name='more'),
     path('date/<str:slug>', views.date, name='date'),
     path('tags/<str:slug>', views.tags, name='tags'),
+    path('author/<str:slug>', views.author, name='author'),
     path('search/', views.search, name='search'),
     path('contact/', views.contact, name='contact'),
 ]

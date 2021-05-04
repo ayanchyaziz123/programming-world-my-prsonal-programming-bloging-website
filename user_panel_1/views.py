@@ -30,6 +30,8 @@ def blog(request):
 #for readmore
 def more(request, slug):
     more = Blog.objects.filter(id=slug).first() 
+    more.blog_views = more.blog_views + 1
+    more.save()
     blogss = get_object_or_404(Blog, id=slug)
     categorys = Blog.objects.all().select_related('cat_name')
     categorys = categorys.order_by('cat_name__cat_priority', 'cat_name', 'blog_priority') #sort all data
@@ -148,6 +150,19 @@ def tags(request, slug):
         'recentBlog': reacentBlog,
     }
     return render(request, 'extra.html', context)
+
+def author(request, slug):
+    reacentBlog = Blog.objects.all().order_by('-blog_date')[0:5]
+    blog = Blog.objects.filter(blog_author__contains=slug)
+    categorys = Blog.objects.all().select_related('cat_name')
+    categorys = categorys.order_by('cat_name__cat_priority', 'cat_name', 'blog_priority') #sort all data
+    print(categorys)
+    context = {
+        'blog': blog,
+        'object_list': categorys,
+        'recentBlog': reacentBlog,
+    }
+    return render(request, 'extra.html', context)    
 
 
 
