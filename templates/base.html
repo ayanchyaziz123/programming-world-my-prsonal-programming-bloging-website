@@ -134,7 +134,7 @@
 
 <ul>
 {% for categories in cat_all %}
-    <li style="list-style-type:none; margin-left:-37px;"><strong class="title">{{ categories.grouper }} ({{ categories.list|length}}) </strong>
+    <li style="list-style-type:none; margin-left:-37px;" class="title">{{ categories.grouper }} ({{ categories.list|length}}) 
     <ul style="list-style-type:none;">
         {% for blog in categories.list %}
           <li style="margin-left:-33px;"  class="ur {% if blog.id == more.id %}activee{% endif %}">
@@ -153,8 +153,8 @@
 <div class="card shadow rounded">
   <img class="card-img-top" style="max-height:120px;" src="{% static 'aya.jpeg' %}" alt="Card image cap">
   <div class="card-body ">
-    <p class="card-text">Azizur Rahman (Ayan) </p>
-    <span>Student at <br> Metropoliton University, Bangladesh</span> <br>
+    <p class="card-text" style="font-size:17px">Azizur Rahman (Ayan) </p>
+    <span style="font-size:17px">Student at <br> Metropoliton University, Bangladesh</span> <br>
     <div class="mt-2">
      <span class="text-style-two"><a href="mailto:aaziz9642@gmail.com" style="text-decoration: none;" target="_blank" class="text-dark "><i class="fa fa-envelope pr-2" aria-hidden="true"></i> </a></span>
 <span class="text-style-two"><a href="https://linkedin.com/in/azizur-rahman-720636165" style="text-decoration: none;"  target="_blank" class="text-dark "><i class="fa fa-linkedin-square" aria-hidden="true"></i> </a></span> 
