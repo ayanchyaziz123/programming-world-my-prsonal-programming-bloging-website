@@ -9,5 +9,6 @@ urlpatterns = [
     path('tags/<str:slug>', views.tags, name='tags'),
     path('author/<str:slug>', views.author, name='author'),
     path('search/', views.search, name='search'),
+    path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
 ]

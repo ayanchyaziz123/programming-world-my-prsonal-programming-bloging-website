@@ -38,17 +38,18 @@
    <!--for logo and serach-->
 
 
- <div class="container mt-2 text-center border border-secondary">
+ <div class="container mt-2 text-center border border-secondary"> <!--top container-->
 
  <!--row start here-->
  <div class="row">
- <!--col start here-->
+ <!--col1 start here-->
      <div class="col-sm-6">
      <i class="fa fa-book logo" aria-hidden="true"></i><br>
  <h5 class="text-white">Programming - Lite</h5>
  <p class="text-white">A website to learn Programming</p>
  
      </div>
+     <!--col2 start here-->
      <div class="col-sm-6 mt-2">
      
         <form method="GET" action="{% url 'search' %}">
@@ -67,8 +68,8 @@
      </div>
      </div>
     </div> 
-</div>
- </div> 
+</div> <!--row end here-->
+ </div> <!--container end here-->
 <div class="container bg-white shadow">
 
   
@@ -82,6 +83,9 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'about' %}">About<span class="sr-only">(current)</span></a>
+      </li>
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'contact' %}">Contact<span class="sr-only">(current)</span></a>
       </li>
@@ -148,20 +152,6 @@
 </ul>
 
 
-<h5 class="mt-5"><strong class="title">About Me</strong></h5>
-<hr>
-<div class="card shadow rounded">
-  <img class="card-img-top" style="max-height:120px;" src="{% static 'aya.jpeg' %}" alt="Card image cap">
-  <div class="card-body ">
-    <p class="card-text" style="font-size:17px">Azizur Rahman (Ayan) </p>
-    <span style="font-size:17px">Student at <br> Metropoliton University, Bangladesh</span> <br>
-    <div class="mt-2">
-     <span class="text-style-two"><a href="mailto:aaziz9642@gmail.com" style="text-decoration: none;" target="_blank" class="text-dark "><i class="fa fa-envelope pr-2" aria-hidden="true"></i> </a></span>
-<span class="text-style-two"><a href="https://linkedin.com/in/azizur-rahman-720636165" style="text-decoration: none;"  target="_blank" class="text-dark "><i class="fa fa-linkedin-square" aria-hidden="true"></i> </a></span> 
-<span class="text-style-two"><a href="https://github.com/ayanchyaziz123" style="text-decoration: none;" target="_blank" class="text-dark "><i class="fa fa-github pl-2" aria-hidden="true"></i></a></span>
-  </div>
-  </div>
-</div>
 
 
 

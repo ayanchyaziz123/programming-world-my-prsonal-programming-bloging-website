@@ -53,4 +53,17 @@ class Comment(models.Model):
     def __str__(self):
         return 'Comment by {}'.format(self.name)
 
+class TeamMembers(models.Model):
+    tm_priority = models.IntegerField(unique=True)
+    tm_name = models.CharField(max_length=80)
+    tm_bio = RichTextUploadingField(blank=True, null=True)
+    tm_email = models.EmailField()
+    tm_github = models.CharField(max_length=100)
+    tm_linkedin = models.CharField(max_length=100)
+    tm_image = models.ImageField(blank=True, null=True)
+
+    def __str__(self):
+        return self.tm_name
+
+
       

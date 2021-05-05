@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h5 class="mt-5"><strong class="title">About Us</strong></h5>
+<hr>
+{% for members in teamMembers %}
+<div class="border border-secondary p-3 mt-3  bg-c">
+<div class="row">
+
+
+<div class="col-sm-4">
+<img class="card-img-top img-thumbnail" style="max-height:120px;" src="{{members.tm_image.url}}" alt="Card image cap">  
+
+    </div> <!--col 1 end-->
+
+
+    <div class="col-sm-8 text-white">  
+
+     <p class="card-text" style="font-size:17px">{{members.tm_name}} </p>
+    <span style="font-size:17px">{{members.tm_bio |safe}}</span>
+    <div class="mt-2">
+     <span class="text-style-two"><a href="{{members.tm_email}}" style="text-decoration: none;" target="_blank" class="text-white"><i class="fa fa-envelope pr-2" aria-hidden="true"></i> </a></span>
+<span class="text-style-two"><a href="{{members.tm_linkedin}}" style="text-decoration: none;"  target="_blank" class="text-white"><i class="fa fa-linkedin-square" aria-hidden="true"></i> </a></span> 
+<span class="text-style-two"><a href="{{members.tm_github}}" style="text-decoration: none;" target="_blank" class="text-white"><i class="fa fa-github pl-2" aria-hidden="true"></i></a></span>
+  </div>
+
+
+
+    </div> <!--col 1 end-->
+
+</div> <!--row end-->
+
+</div>
+
+<hr>
+{% endfor %}
+
+{% endblock content %}
+
+

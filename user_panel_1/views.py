@@ -164,6 +164,20 @@ def author(request, slug):
     }
     return render(request, 'extra.html', context)    
 
+def about(request):
+    reacentBlog = Blog.objects.all().order_by('-blog_date')[0:5]
+    categorys = Blog.objects.all().select_related('cat_name')
+    categorys = categorys.order_by('cat_name__cat_priority', 'cat_name', 'blog_priority') #sort all data
+    print(categorys)
+    teamMembers = TeamMembers.objects.all().order_by('tm_priority')
+
+    context = {
+        'object_list': categorys,
+        'recentBlog': reacentBlog,
+        'teamMembers': teamMembers,
+    }
+    return render(request, 'about.html', context)  
+
 
 
 
