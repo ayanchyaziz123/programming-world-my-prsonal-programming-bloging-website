@@ -46,7 +46,7 @@
      <div class="col-sm-6">
      <i class="fa fa-book logo" aria-hidden="true"></i><br>
  <h5 class="text-white">Programming - Lite</h5>
- <p class="text-white">A website to learn Programming</p>
+ <p class="text-white">All About Programming</p>
  
      </div>
      <!--col2 start here-->
@@ -84,10 +84,13 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="{% url 'about' %}">About<span class="sr-only">(current)</span></a>
+        <a class="nav-link " href="{% url 'topBlog' %}">Top Blog<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="{% url 'contact' %}">Contact<span class="sr-only">(current)</span></a>
+        <a class="nav-link " href="{% url 'about' %}">About Me<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'contact' %}">Contact Me<span class="sr-only">(current)</span></a>
       </li>
     </ul>
   
@@ -130,7 +133,7 @@
 
     <div class="col-sm-3 shadow">
 
-     <h5 class="mt-3"><strong class="title">Categories</strong></h5> <!--category-->
+     <h5 class="mt-3"><strong class="title">Categories & Blog</strong></h5> <!--category-->
      <hr>
     
      <!--categories-->
@@ -142,7 +145,7 @@
     <ul style="list-style-type:none;">
         {% for blog in categories.list %}
           <li style="margin-left:-33px;"  class="ur {% if blog.id == more.id %}activee{% endif %}">
-          <a href="{% url 'more' blog.id %}"><a href="{% url 'more' blog.id %}" class="ur {% if blog.id == more.id %}disabled{% endif %}" style="{% if blog.id == more.id %}color:#fff;{% endif %}font-size: 18px;">{{ blog.blog_title }}</li></a>
+          <a href="{% url 'more' blog.id %}"><a href="{% url 'more' blog.id %}" class="ur {% if blog.id == more.id %}disabled{% endif %}" style="{% if blog.id == more.id %}color:#fff;{% endif %}font-size: 18px;">{{ blog.blog_title | truncatechars:60}}</li></a>
           <div class="mt-2"></div>
         {% endfor %}
         <hr>

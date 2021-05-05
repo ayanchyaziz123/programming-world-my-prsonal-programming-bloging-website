@@ -20,10 +20,12 @@ def blog(request):
     page = request.GET.get('page')
     blogs = paginator.get_page(page)
     recentBlog = Blog.objects.all().order_by('-blog_date')[0:5]
+    flag = 0
     context = {
         'object_list': categorys,
         'blogs': blogs,
         'recentBlog': recentBlog,
+        'flag': flag,
     }
     return render(request, 'blog.html', context)
 
@@ -177,6 +179,23 @@ def about(request):
         'teamMembers': teamMembers,
     }
     return render(request, 'about.html', context)  
+def topBlog(request):
+    categorys = Blog.objects.all().select_related('cat_name')
+    categorys = categorys.order_by('cat_name__cat_priority', 'cat_name', 'blog_priority') #sort all data
+    blogs = Blog.objects.all().order_by('-blog_views')
+    paginator = Paginator(blogs, 10)
+    page = request.GET.get('page')
+    blogs = paginator.get_page(page)
+    recentBlog = Blog.objects.all().order_by('-blog_date')[0:5]
+    flag = 1
+    context = {
+        'object_list': categorys,
+        'blogs': blogs,
+        'recentBlog': recentBlog,
+        'flag': flag,
+    }
+    return render(request, 'blog.html', context) 
+
 
 
 

@@ -11,7 +11,13 @@
          <h5 class="title">{{blogs.blog_title |truncatechars:100}}</h5>
          <p  class="description"><i class="fa fa-calendar" aria-hidden="true"></i> <a href="{% url 'date' blogs.blog_date %}" class="mr-2 ur description"> {{ blogs.blog_date}} </a> <i class="fa fa-bookmark" aria-hidden="true"></i> 
          <a href="{% url 'tags' blogs.blog_tags %}" class="mr-2 ur description">  {{ blogs.blog_tags}} </a>
-        <i class="fa fa-user" aria-hidden="true"></i>  <a href="{% url 'author' blogs.blog_author %}" class="ur description">  {{ blogs.blog_author}} </a>             
+               <!--when top page show there will show total views-->
+               {% if flag == 1 %}
+               
+                <i class="fa fa-eye" aria-hidden="true"></i> <span> {{blogs.blog_views}}</span>
+               
+               
+               {% endif %}
                             </p>
          <div > <p class="fs">{{blogs.blog_descriptions |truncatechars:200}}</p></div>
          <a href="{% url 'more' blogs.id %}"   class="btn btn-info mt-3">More</a>

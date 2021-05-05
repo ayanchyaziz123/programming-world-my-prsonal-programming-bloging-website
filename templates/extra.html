@@ -12,8 +12,7 @@
     <div class="card-body">
          <h5 class="title">{{blog.blog_title |truncatechars:100}}</h5>
     <p  class="description"><i class="fa fa-calendar" aria-hidden="true"></i> <a href="{% url 'date' blog.blog_date %}" class="mr-2 ur description"> {{ blog.blog_date}} </a> <i class="fa fa-bookmark" aria-hidden="true"></i> 
-         <a href="{% url 'tags' blog.blog_tags %}" class="mr-2 ur description">  {{ blog.blog_tags}} </a>
-        <i class="fa fa-user" aria-hidden="true"></i>  <a href="{% url 'author' blog.blog_author %}" class="ur description">  {{ blog.blog_author}} </a>             
+         <a href="{% url 'tags' blog.blog_tags %}" class="mr-2 ur description">  {{ blog.blog_tags}} </a>       
                             </p>
          <p>{{blog.blog_descriptions | truncatechars:200}}</p>
          <a href="{% url 'more' blog.id %}" class="btn btn-info">More</a>
