@@ -118,6 +118,12 @@ p{
     text-decoration-color: #fff !important;
     text-decoration-thickness: 2px !important;
 }
+.navbar-toggler>.close {
+    display:inline;
+}
+.navbar-toggler.collapsed>.close, .navbar-toggler:not(.collapsed)>.navbar-toggler-icon {
+    display:none;
+}
 
 
 

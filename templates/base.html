@@ -78,11 +78,14 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-2 pt-0 pb-0">
     {% url 'blog' as blog %}
   <a class="navbar-brand {% if request.path == blog %}active{% endif %}" href="{% url 'blog' %}">Home</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+ <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="my-1 mx-2 close text-white">&times;</span>
+       <span class="navbar-toggler-icon"></span>
+       
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div
+  class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
     {% url 'topBlog' as topBlog%}
       <li class="nav-item {% if request.path == topBlog %}active{% endif %}">
