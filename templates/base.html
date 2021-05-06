@@ -76,20 +76,24 @@
   <hr class="mt-2">
     <!--navbar start here-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-2 pt-0 pb-0">
-  <a class="navbar-brand" href="{% url 'blog' %}">Blog</a>
+    {% url 'blog' as blog %}
+  <a class="navbar-brand {% if request.path == blog %}active{% endif %}" href="{% url 'blog' %}">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link " href="{% url 'topBlog' %}">Top Blog<span class="sr-only">(current)</span></a>
+    {% url 'topBlog' as topBlog%}
+      <li class="nav-item {% if request.path == topBlog %}active{% endif %}">
+        <a class="nav-link " href="{% url 'topBlog' %}">Top Blogs<span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item active">
+      {% url 'about' as about %}
+      <li class="nav-item {% if request.path == about %}active{% endif %}">
         <a class="nav-link " href="{% url 'about' %}">About Me<span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item active">
+      {% url 'contact' as contact %}
+      <li class="nav-item {% if request.path == contact %}active{% endif %}">
         <a class="nav-link" href="{% url 'contact' %}">Contact Me<span class="sr-only">(current)</span></a>
       </li>
     </ul>

@@ -98,7 +98,7 @@ p{
 }
 .rounded{
     border-radius: 12px !important;
-}
+} 
 .activee{
     color: #fff !important;
     background: #2b5b84 !important;
@@ -111,6 +111,12 @@ p{
 
 .fs{
     font-size: 17px !important;
+}
+
+.active{
+    text-decoration: overline !important;
+    text-decoration-color: #fff !important;
+    text-decoration-thickness: 2px !important;
 }
 
 
