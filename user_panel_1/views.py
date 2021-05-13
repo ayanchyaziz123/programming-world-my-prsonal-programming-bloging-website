@@ -1,7 +1,7 @@
 from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 from .models import *
-from django.db.models import Q
+from django.db.models import Q, query
 from django.core.paginator import Paginator
 from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, reverse
@@ -87,14 +87,14 @@ def more(request, slug):
 #for search
 def search(request):
     query = request.GET['search']
-    blog = Blog.objects.filter(Q(blog_title__icontains=query) | Q(blog_body__contains=query))
-    total = blog.count()
+    search = Blog.objects.filter(Q(blog_title__icontains=query) | Q(blog_body__contains=query))
+    total = search.count()
     categorys = Blog.objects.all().select_related('cat_name')
     categorys = categorys.order_by('cat_name__cat_priority', 'cat_name', 'blog_priority') #sort all data
     reacentBlog = Blog.objects.all().order_by('-blog_date')[0:5]
     print(categorys)
     context = {
-        'blog': blog,
+        'search': search,
         'object_list': categorys,
         'query': query,
         'total': total,
@@ -128,43 +128,52 @@ def contact(request):
 
 def date(request, slug):
     reacentBlog = Blog.objects.all().order_by('-blog_date')[0:5]
-    blog = Blog.objects.filter(blog_date__contains=slug)
     categorys = Blog.objects.all().select_related('cat_name')
     categorys = categorys.order_by('cat_name__cat_priority', 'cat_name', 'blog_priority') #sort all data
-    print(categorys)
+    date = Blog.objects.filter(blog_date__contains=slug)
+    total = date.count()
+    query = slug
     context = {
-        'blog': blog,
+        'date': date,
         'object_list': categorys,
-         'recentBlog': reacentBlog,
+        'recentBlog': reacentBlog,
+        'total': total,
+        'query': query,
     }
-    return render(request, 'extra.html', context)
+    return render(request, 'date.html', context)
 
 #tags wise search
 def tags(request, slug):
     reacentBlog = Blog.objects.all().order_by('-blog_date')[0:5]
-    blog = Blog.objects.filter(blog_tags__contains=slug)
+    tags = Blog.objects.filter(blog_tags__contains=slug)
     categorys = Blog.objects.all().select_related('cat_name')
     categorys = categorys.order_by('cat_name__cat_priority', 'cat_name', 'blog_priority') #sort all data
-    print(categorys)
+    total = tags.count()
+    query = slug
     context = {
-        'blog': blog,
+        'tags': tags,
         'object_list': categorys,
         'recentBlog': reacentBlog,
+        'total': total,
+        'query': query,
     }
-    return render(request, 'extra.html', context)
+    return render(request, 'tags.html', context)
 
 def author(request, slug):
     reacentBlog = Blog.objects.all().order_by('-blog_date')[0:5]
-    blog = Blog.objects.filter(blog_author__contains=slug)
+    author = Blog.objects.filter(blog_author__contains=slug)
     categorys = Blog.objects.all().select_related('cat_name')
     categorys = categorys.order_by('cat_name__cat_priority', 'cat_name', 'blog_priority') #sort all data
-    print(categorys)
+    total = author.count()
+    query = slug
     context = {
-        'blog': blog,
+        'author': author,
         'object_list': categorys,
         'recentBlog': reacentBlog,
+        'total': total,
+        'query': query,
     }
-    return render(request, 'extra.html', context)    
+    return render(request, 'author.html', context)    
 
 def about(request):
     reacentBlog = Blog.objects.all().order_by('-blog_date')[0:5]

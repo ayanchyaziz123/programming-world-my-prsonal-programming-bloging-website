@@ -124,6 +124,10 @@ p{
 .navbar-toggler.collapsed>.close, .navbar-toggler:not(.collapsed)>.navbar-toggler-icon {
     display:none;
 }
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+  }
 
 
 

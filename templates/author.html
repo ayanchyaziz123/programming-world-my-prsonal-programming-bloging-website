@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<h3 class="mt-3 title">Total blogs  <u> {{query}} </u> Author  : {{total}}</h3>
+
+
+   {% for author in author %}
+
+    <div class="card shadow mt-4">
+    <div class="card-body">
+         <h5 class="title">{{author.blog_title |truncatechars:100}}</h5>
+    <p  class="description"><i class="fa fa-calendar" aria-hidden="true"></i> 
+    <a href="#" class="mr-2 ur description"> {{ author.blog_date}} </a>
+     <i class="fa fa-bookmark" aria-hidden="true"></i> 
+         <a href="#" class="mr-2 ur description">  {{ author.blog_tags}} </a>       
+                            </p>
+         <p>{{author.blog_descriptions | truncatechars:200}}</p>
+          <a href="{% url 'more' slug=author.id %}" class="btn btn-info">More</a>
+
+
+     </div>
+
+
+    </div>
+
+    <hr>
+    
+    
+    
+    {% endfor %}
+
+
+
+
+
+{% endblock content %}

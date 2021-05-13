@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h3 class="mt-3 title">Total blogs  <u> {{query}} </u> Tags  : {{total}}</h3>
+
+
+
+   {% for tags in tags %}
+
+    <div class="card shadow mt-4">
+    <div class="card-body">
+         <h5 class="title">{{tags.blog_title |truncatechars:100}}</h5>
+    <p  class="description"><i class="fa fa-calendar" aria-hidden="true"></i> 
+    <a href="{% url 'date' slug=tags.blog_date %}" class="mr-2 ur description"> {{ tags.blog_date}} </a>
+     <i class="fa fa-bookmark" aria-hidden="true"></i> 
+         <span class="mr-2  description">  {{ tags.blog_tags}} </span>       
+                            </p>
+         <p>{{tags.blog_descriptions | truncatechars:200}}</p>
+         <a href="{% url 'more' slug=tags.id %}" class="btn btn-info">More</a>
+
+
+     </div>
+
+
+    </div>
+
+    <hr>
+    
+    
+    
+    {% endfor %}
+
+
+
+
+
+{% endblock content %}

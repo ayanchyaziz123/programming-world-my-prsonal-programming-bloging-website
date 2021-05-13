@@ -33,17 +33,19 @@
 <h5 class="title">Your search query was : <u> {{query}} </u></h5>
 
 
-   {% for blog in blog %}
+   {% for search in search %}
 
     <div class="card shadow mt-4">
     <div class="card-body">
-         <h5 class="title">{{blog.blog_title |truncatechars:100}}</h5>
-        <p  class="description"><i class="fa fa-calendar" aria-hidden="true"></i> <a href="{% url 'date' blog.blog_date %}" class="mr-2 ur description"> {{ blog.blog_date}} </a> <i class="fa fa-bookmark" aria-hidden="true"></i> 
-         <a href="{% url 'tags' blog.blog_tags %}" class="mr-2 ur description">  {{ blog.blog_tags}} </a>
+         <h5 class="title">{{search.blog_title |truncatechars:100}}</h5>
+        <p  class="description"><i class="fa fa-calendar" aria-hidden="true"></i> 
+        <a href="{% url 'date' slug=search.blog_date %}" class="mr-2 ur description"> {{ search.blog_date}} </a> 
+        <i class="fa fa-bookmark" aria-hidden="true"></i> 
+         <a href="{% url 'tags' slug=search.blog_tags %}" class="mr-2 ur description">  {{ search.blog_tags}} </a>
        
                             </p>
-         <p>{{blog.blog_descriptions | truncatechars:200}}</p>
-         <a href="{% url 'more' blog.id %}" class="btn btn-info">More</a>
+         <p>{{search.blog_descriptions | truncatechars:200}}</p>
+         <a href="{% url 'more' slug=search.id %}" class="btn btn-info">More</a>
 
 
      </div>
