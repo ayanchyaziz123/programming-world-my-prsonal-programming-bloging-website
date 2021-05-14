@@ -115,7 +115,7 @@ p{
 
 .active{
     text-decoration: overline !important;
-    text-decoration-color: #fff !important;
+    text-decoration-color: rgb(78, 75, 75) !important;
     text-decoration-thickness: 2px !important;
 }
 .navbar-toggler>.close {
