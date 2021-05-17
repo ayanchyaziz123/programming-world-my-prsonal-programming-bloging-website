@@ -65,7 +65,8 @@ li .nav-link{
 
 }
 .btn{
-    font-size: 12px !important;
+    font-size: 13px !important;
+    
 
 }
 .description{
@@ -91,6 +92,8 @@ li .nav-link{
 .btn-info{
     background-color: #2b5b84;
     border-color: #2b5b84;
+    border-radius: 15px !important;
+    
 }
 .btn-info:hover{
     background-color: #003461;
@@ -135,7 +138,10 @@ li .nav-link{
 .activee{
     color: #fff !important;
     background: #2b5b84 !important;
-    padding: 8px !important;
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+    padding-bottom: 4px !important;
+    padding-top: 4px !important;
     border-radius: 15px !important;
 }
 .disabled {
@@ -161,6 +167,19 @@ li .nav-link{
 a.disabled {
     pointer-events: none;
     cursor: default;
+  }
+
+  .jbc{
+      background-color: #1e4263 !important;
+  }
+
+  .bw{
+    border-radius: 15px !important;
+  }
+
+  .sb{
+      border-top-right-radius: 15px !important;
+      border-bottom-right-radius: 15px !important;
   }
 
 
