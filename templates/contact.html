@@ -2,9 +2,9 @@
 {% load static %}
 
 {% block content %}
-<h4 class="mt-3">Contact</h4>
-<hr>
-<div class="border border-secondary p-3 mt-3  bg-c">
+
+<div class="border border-secondary card shadow mt-4 rounded p-2  mt-3  bg-c">
+<h4 class="mt-3 mb-3 text-white">Contact Me </h4>
 
 <form class="ml-4 mr-2" name="myForm" action="{% url 'contact' %}" method="POST" onsubmit="return validateForm()">
 {% csrf_token %}

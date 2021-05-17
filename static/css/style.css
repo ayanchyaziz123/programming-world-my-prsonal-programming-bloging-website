@@ -17,7 +17,7 @@
 
 
 body {
-    background-color: #2b5b84;
+    background: hsl(84, 3%, 94%) !important;
 }
 
 .btn-info{
