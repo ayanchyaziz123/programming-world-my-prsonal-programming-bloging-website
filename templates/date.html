@@ -11,8 +11,8 @@
     <div class="card shadow mt-4">
     <div class="card-body">
          <h5 class="title">{{date.blog_title |truncatechars:100}}</h5>
-    <p  class="description"><i class="fa fa-calendar" aria-hidden="true"></i> 
-    <span  class="mr-2  description"> {{ date.blog_date}} </span>
+    <p  class="description">
+    <span  class="mr-2  description activee"><i class="fa fa-calendar" aria-hidden="true"></i>  {{ date.blog_date}} </span>
      <i class="fa fa-bookmark" aria-hidden="true"></i> 
          <a href="{% url 'tags' slug=date.blog_tags %}" class="mr-2 ur description">  {{ date.blog_tags}} </a>       
                             </p>

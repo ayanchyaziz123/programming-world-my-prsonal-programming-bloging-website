@@ -1,8 +1,51 @@
-body{
-    background-color: #2b5b84;
-    font-family:Helvetica Neue; 
-    font-size:14;
+@import url('https://fonts.googleapis.com/css2?family=David+Libre&family=Josefin+Sans&display=swap');
+
+:root {
+    --bg-size: 100% 100%;
+    --main_color: #fff;
+    --title: 'Josefin Sans', sans-serif;
+    --font-para: 'David Libre', serif;
+    --btn-color: #bbe1fa;
+    --btn-font-color: #000;
+    --btn-font: 1.5rem;
+    --eff: .3s all ease;
 }
+
+* {
+    font-family: var(--font-para);
+}
+
+
+body {
+    background-color: #2b5b84;
+}
+
+.btn-info{
+    background-color: #34568B !important;
+    border-color: #34568B !important;
+}
+
+.btn-info:hover{
+    background-color: #1d3c6d !important;
+    border-color: #264577 !important;
+}
+
+.btn{
+    outline: none !important;
+  }
+
+  .btn:focus, .btn:active {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+
+.form-control:focus {
+    border-color: #1d3c6d;
+    box-shadow: 0 0 0 0.2rem rgba(104, 105, 27, 0.842);
+} 
+
+
 .bg-dark{
     background: #2b5b84 !important;
 }
@@ -25,16 +68,6 @@ li .nav-link{
     font-size: 12px !important;
 
 }
-p{
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  .navbar-nav .nav-item{
-    font-weight: 600 !important;
-}
-.navbar-brand{
-    font-weight: 600 !important;
-
-}  
 .description{
     color: #666666;
     font-size: 17px !important;
@@ -102,7 +135,8 @@ p{
 .activee{
     color: #fff !important;
     background: #2b5b84 !important;
-    padding: 5px !important;
+    padding: 8px !important;
+    border-radius: 15px !important;
 }
 .disabled {
     pointer-events: none;
