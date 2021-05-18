@@ -150,11 +150,11 @@
 
 <ul>
 {% for categories in cat_all %}
-    <li style="list-style-type:none; margin-left:-37px;" class="title">{{ categories.grouper }} ({{ categories.list|length}}) 
+    <li style="list-style-type:none; margin-left:-37px;" class="title">{{ categories.grouper }} <span class="total-cat">({{ categories.list|length}}) </span>
     <ul style="list-style-type:none;">
         {% for blog in categories.list %}
           <li style="margin-left:-33px;"  class="ur {% if blog.id == more.id %}activee{% endif %}">
-          <a href="{% url 'more' blog.id %}"><a href="{% url 'more' blog.id %}" class="ur {% if blog.id == more.id %}disabled{% endif %}" style="{% if blog.id == more.id %}color:#fff;{% endif %}font-size: 18px;">{{ blog.blog_title | truncatechars:60}}</li></a>
+          <a href="{% url 'more' slug=blog.id %}" class="ur {% if blog.id == more.id %}disabled{% endif %}" style="{% if blog.id == more.id %}color:#fff;{% endif %}font-size: 20px;">{{ blog.blog_title | truncatechars:60}}</li></a>
           <div class="mt-2"></div>
         {% endfor %}
         <hr>
@@ -198,8 +198,8 @@
       <p class="lead mt-2 mb-2">
         
         <h5 class="mt-2">Recent Blogs</h5>
-        {% for recentBlog in recentBlog %}
-         <a href="{% url 'more' recentBlog.id %}"  class="text-white">{{recentBlog.blog_title}}</a>
+        {% for recentBlogs in recentBlog %}
+         <a href="{% url 'more' slug=recentBlogs.id %}"  class="text-white">{{recentBlogs.blog_title}}</a>
         <br>
         <div class="mt-2">
         </div>

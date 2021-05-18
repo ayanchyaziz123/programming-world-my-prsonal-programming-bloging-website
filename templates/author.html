@@ -19,7 +19,7 @@
           
          <span class="mr-2 ur description activee"><i class="fa fa-user" aria-hidden="true"></i>  {{ author.blog_author}} </span> 
                             </p>
-         <p>{{author.blog_descriptions | truncatechars:200}}</p>
+         <p style="font-size: 20px;">{{author.blog_descriptions | truncatechars:200}}</p>
           <a href="{% url 'more' slug=author.id %}" class="btn btn-info">More</a>
 
 

@@ -44,7 +44,7 @@
          <a href="{% url 'tags' slug=search.blog_tags %}" class="mr-2 ur description">  {{ search.blog_tags}} </a>
        
                             </p>
-         <p>{{search.blog_descriptions | truncatechars:200}}</p>
+         <p style="font-size: 20px;">{{search.blog_descriptions | truncatechars:200}}</p>
          <a href="{% url 'more' slug=search.id %}" class="btn btn-info">More</a>
 
 

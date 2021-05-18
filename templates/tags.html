@@ -17,7 +17,7 @@
       
          <span class="mr-2  description activee"><i class="fa fa-bookmark" aria-hidden="true"></i>  {{ tags.blog_tags}} </span>       
                             </p>
-         <p>{{tags.blog_descriptions | truncatechars:200}}</p>
+         <p style="font-size: 20px;">{{tags.blog_descriptions | truncatechars:200}}</p>
          <a href="{% url 'more' slug=tags.id %}" class="btn btn-info">More</a>
 
 

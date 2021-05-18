@@ -87,7 +87,7 @@ li .nav-link{
 }
 .title{
     color: #666;
-    font-size: 20px !important;
+    font-size: 23px !important;
 }
 .btn-info{
     background-color: #2b5b84;
@@ -129,7 +129,11 @@ li .nav-link{
 .ur:hover{
     color: #fff !important;
     background:#808080 !important;
-    padding: 5px !important;
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+    padding-bottom: 4px !important;
+    padding-top: 4px !important;
+    border-radius: 12px !important;
     transition-duration: 0.9s;
 }
 .rounded{
@@ -142,16 +146,14 @@ li .nav-link{
     padding-right: 7px !important;
     padding-bottom: 4px !important;
     padding-top: 4px !important;
-    border-radius: 15px !important;
+    border-radius: 12px !important;
 }
 .disabled {
     pointer-events: none;
     cursor: default;
   }
 
-.fs{
-    font-size: 17px !important;
-}
+
 
 .active{
     text-decoration: overline !important;
@@ -169,17 +171,21 @@ a.disabled {
     cursor: default;
   }
 
-  .jbc{
+.jbc{
       background-color: #1e4263 !important;
   }
 
-  .bw{
+.bw{
     border-radius: 15px !important;
   }
 
-  .sb{
+.sb{
       border-top-right-radius: 15px !important;
       border-bottom-right-radius: 15px !important;
+  }
+
+.total-cat{
+      color: #34568B !important;
   }
 
 

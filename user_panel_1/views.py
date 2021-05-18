@@ -30,10 +30,10 @@ def blog(request):
     return render(request, 'blog.html', context)
 
 #for readmore
-def more(request, slug):
-    more = Blog.objects.filter(id=slug).first() 
-    more.blog_views = more.blog_views + 1
-    more.save()
+def mores(request, slug):
+    blog_more = Blog.objects.filter(id=slug).first() 
+    blog_more.blog_views = blog_more.blog_views + 1
+    blog_more.save()
     blogss = get_object_or_404(Blog, id=slug)
     categorys = Blog.objects.all().select_related('cat_name')
     categorys = categorys.order_by('cat_name__cat_priority', 'cat_name', 'blog_priority') #sort all data
@@ -43,7 +43,6 @@ def more(request, slug):
     #print("hello world")
     comments = blogss.comments.filter(active=True, parent__isnull=True)
     if request.method == 'POST':
-        print("hello me if")
         # comment has been added
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
@@ -73,16 +72,14 @@ def more(request, slug):
             return HttpResponseRedirect(reverse('more', args=[str(go_back)]))
     else:
         comment_form = CommentForm()
-    return render(request,
-                  'more.html',
-                  {
-                   'comments': comments,
-                   'comment_form': comment_form,
-                   'blog': blog,
-                   'object_list': categorys,
-                   'more':more,
-                   'recentBlog': reacentBlog,
-                   })
+    context = {
+        'comments': comments,
+        'comment_form': comment_form,
+        'object_list': categorys,
+        'more': blog_more,
+        'recentBlog': reacentBlog,
+    }    
+    return render(request,'more.html', context)
     
 #for search
 def search(request):
