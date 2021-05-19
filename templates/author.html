@@ -12,12 +12,21 @@
     <div class="card shadow mt-4 rounded">
     <div class="card-body">
          <h5 class="title">{{author.blog_title |truncatechars:100}}</h5>
-    <p  class="description"><i class="fa fa-calendar" aria-hidden="true"></i> 
-    <a href="{% url 'date' slug=author.blog_date %}" class="mr-2 ur description"> {{ author.blog_date}} </a>
-      
-         <a href="{% url 'tags' slug=author.blog_tags %}" class="mr-2 ur description active"><i class="fa fa-bookmark" aria-hidden="true"></i>  {{ author.blog_tags}} </a>      
+    <p  class="description">
+
+    <span class="activee mr-2">
+    <a href="{% url 'date' slug=author.blog_date %}" class="mr-2 ur description text-white"><i class="fa fa-calendar" aria-hidden="true"></i>  {{ author.blog_date}} </a>
+      </span>
+   <span class="activee text-white">
+         <i class="fa fa-bookmark" aria-hidden="true"></i> 
+         
+         {% for tag in author.blog_tags.all %}
+        
+         <a href="{% url 'tags' tag.slug %}" class="mr-2 ur description text-white">  {{ tag.name}}, </a>
+
+         {% endfor %}    
           
-         <span class="mr-2 ur description activee"><i class="fa fa-user" aria-hidden="true"></i>  {{ author.blog_author}} </span> 
+    
                             </p>
          <p style="font-size: 20px;">{{author.blog_descriptions | truncatechars:200}}</p>
           <a href="{% url 'more' slug=author.id %}" class="btn btn-info">More</a>

@@ -9,13 +9,25 @@
     <div class="card shadow mt-4 rounded">
     <div class="card-body">
          <h5 class="title">{{blogs.blog_title |truncatechars:100}}</h5>
-         <p  class="description"><i class="fa fa-calendar" aria-hidden="true"></i> <a href="{% url 'date' blogs.blog_date %}" class="mr-2 ur description"> {{ blogs.blog_date}} </a> <i class="fa fa-bookmark" aria-hidden="true"></i> 
-         <a href="{% url 'tags' blogs.blog_tags %}" class="mr-2 ur description">  {{ blogs.blog_tags}} </a>
+         <div class="">
+         <p  class="description"> <a href="{% url 'date' blogs.blog_date %}" class="mr-2 ur description activee"><i class="fa fa-calendar" aria-hidden="true"></i> {{ blogs.blog_date}} </a> 
+         
+         <span class="activee text-white">
+         <i class="fa fa-bookmark" aria-hidden="true"></i> 
+         
+         {% for tag in blogs.blog_tags.all %}
+        
+         <a href="{% url 'tags' tag.slug %}" class="mr-2 ur description text-white">  {{ tag.name}}, </a>
+
+         {% endfor %}
+</span>
+         </div>
                <!--when top page show there will show total views-->
                {% if flag == 1 %}
+              <span class="activee text-white">
                
                 <i class="fa fa-eye" aria-hidden="true"></i> <span> {{blogs.blog_views}}</span>
-               
+                </span>
                
                {% endif %}
                             </p>

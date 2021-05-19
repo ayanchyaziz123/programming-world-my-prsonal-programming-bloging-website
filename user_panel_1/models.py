@@ -1,6 +1,7 @@
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db.models.base import Model
+from taggit.managers import TaggableManager
 
 # Create your models here.
 
@@ -15,11 +16,12 @@ class Blog(models.Model):
     cat_name = models.ForeignKey(Category, on_delete=models.CASCADE)
     blog_author = models.CharField(max_length=200)
     blog_priority = models.IntegerField(blank=True, null=True)
-    blog_tags = models.CharField(max_length=200,  blank=True, null=True)
+    blog_tags = TaggableManager()
     blog_title = models.CharField(max_length=200)
     blog_descriptions = models.CharField(max_length=600);
     blog_body = RichTextUploadingField(blank=True, null=True)
     blog_views = models.IntegerField(default=0)
+    blog_updateDate = models.DateField()
     blog_date = models.DateField(auto_now_add=True, auto_now=False, blank=True)
 
     def __str__(self):

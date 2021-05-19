@@ -12,12 +12,19 @@
     <div class="card-body">
          <h5 class="title">{{date.blog_title |truncatechars:100}}</h5>
     <p  class="description">
-    <span  class="mr-2  description activee"><i class="fa fa-calendar" aria-hidden="true"></i>  {{ date.blog_date}} </span>
-     <i class="fa fa-bookmark" aria-hidden="true"></i> 
-         <a href="{% url 'tags' slug=date.blog_tags %}" class="mr-2 ur description">  {{ date.blog_tags}} </a>       
+     
+            <span class="activee text-white">
+         <i class="fa fa-bookmark" aria-hidden="true"></i> 
+         
+         {% for tag in date.blog_tags.all %}
+        
+         <a href="{% url 'tags' tag.slug %}" class="mr-2 ur description text-white">  {{ tag.name}}, </a>
+
+         {% endfor %}
+</span>   
                             </p>
          <p style="font-size: 20px;">{{date.blog_descriptions | truncatechars:200}}</p>
-         <a href="{% url 'more' slug=date.id  %}" class="btn btn-info">More</a>
+         <a href="{% url 'more' date.id  %}" class="btn btn-info">More</a>
 
 
        </div>

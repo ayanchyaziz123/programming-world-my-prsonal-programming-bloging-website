@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'user_panel_1',
     'ckeditor',
     'django.contrib.humanize',
+    'taggit',
 ]
 
 CKEDITOR_UPLOAD_PATH = "uploads/"

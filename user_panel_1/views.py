@@ -7,6 +7,8 @@ from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, reverse
 from .forms import CommentForm
 from django.core.mail import BadHeaderError, send_mail
+from taggit.models import Tag
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 
@@ -140,13 +142,14 @@ def date(request, slug):
     return render(request, 'date.html', context)
 
 #tags wise search
-def tags(request, slug):
+def tags(request, tag_slug):
+    query = tag_slug
+    tags = Blog.objects.filter(blog_body__icontains=query)
     reacentBlog = Blog.objects.all().order_by('-blog_date')[0:5]
-    tags = Blog.objects.filter(blog_tags__contains=slug)
     categorys = Blog.objects.all().select_related('cat_name')
     categorys = categorys.order_by('cat_name__cat_priority', 'cat_name', 'blog_priority') #sort all data
     total = tags.count()
-    query = slug
+    query = tag_slug
     context = {
         'tags': tags,
         'object_list': categorys,
