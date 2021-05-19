@@ -24,7 +24,7 @@
 </span>   
                             </p>
          <p style="font-size: 20px;">{{date.blog_descriptions | truncatechars:200}}</p>
-         <a href="{% url 'more' date.id  %}" class="btn btn-info">More</a>
+         <a href="{% url 'more_page' date.id date.blog_title %}" class="btn btn-info">More</a>
 
 
        </div>

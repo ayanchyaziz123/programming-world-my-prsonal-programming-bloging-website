@@ -28,7 +28,7 @@
         </span>
         <span class="activee text-white mr-2">
          <span class="text-white"><i class="fa fa-eye" aria-hidden="true"></i>  {{more.blog_views}}</span>
-         </span">
+         </span>
                             
                             </p>
  
@@ -59,7 +59,7 @@
 <!-- Comments Form -->
 <br>
 <h4 id="heading">Add a new comment</h4><br>
-<form action="{% url 'more' more.id%}" method="post">
+<form action="{% url 'more_page' more.id more.blog_title%}" method="post">
     {{ comment_form.as_p }}
     <br>
     {% csrf_token %}
@@ -122,7 +122,7 @@
 
   <div class="card ml-4 mt-3 mb-3 mr-1  p-2 pl-3 ml-4"> <!--2-->
   <p id="heading">Add A Reply</p>
-        <form action="{% url 'more' more.id%}" method="post">
+        <form action="{% url 'more_page' more.id more.blog_title%}" method="post">
             {{ comment_form.as_p }}
             {% csrf_token %}
             <!-- Hidden input for parent comment.id -->

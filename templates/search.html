@@ -52,7 +52,7 @@
        </span>
                             </p>
          <p style="font-size: 20px;">{{search.blog_descriptions | truncatechars:200}}</p>
-         <a href="{% url 'more' slug=search.id %}" class="btn btn-info">More</a>
+         <a href="{% url 'more_page' search.id search.blog_title%}" class="btn btn-info">More</a>
 
 
      </div>

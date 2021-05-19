@@ -29,7 +29,7 @@
     
                             </p>
          <p style="font-size: 20px;">{{author.blog_descriptions | truncatechars:200}}</p>
-          <a href="{% url 'more' slug=author.id %}" class="btn btn-info">More</a>
+          <a href="{% url 'more_page' author.id author.blog_title%}" class="btn btn-info">More</a>
 
 
      </div>

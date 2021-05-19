@@ -18,7 +18,7 @@
          </span>
                             </p>
          <p style="font-size: 20px;">{{tags.blog_descriptions | truncatechars:200}}</p>
-         <a href="{% url 'more' slug=tags.id %}" class="btn btn-info">More</a>
+         <a href="{% url 'more_page' tags.id tags.blog_title%}" class="btn btn-info">More</a>
 
 
      </div>

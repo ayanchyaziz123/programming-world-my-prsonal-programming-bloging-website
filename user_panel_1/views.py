@@ -32,8 +32,14 @@ def blog(request):
     return render(request, 'blog.html', context)
 
 #for readmore
-def mores(request, slug):
+def mores(request, more_slug, more_slug2):
+    
+    slug = more_slug
+    slug2 = more_slug2
+    slug = int(slug)
+    print("slug =================",slug)
     blog_more = Blog.objects.filter(id=slug).first() 
+    print("Blog more ========>", blog_more)
     blog_more.blog_views = blog_more.blog_views + 1
     blog_more.save()
     blogss = get_object_or_404(Blog, id=slug)
