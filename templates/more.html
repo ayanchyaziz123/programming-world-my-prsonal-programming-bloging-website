@@ -5,30 +5,30 @@
 {% block content %}
 
 <div class="">
-<div class="card shadow mt-3  rounded p-3 ">
+<div class="card shadow mt-4  rounded p-3 ">
 
 <h5 class="mt-3">{{more.blog_title}}</h5>
 <hr>
  <p  class="description">
- <span class="activee mr-2 ">
-  <a href="{% url 'date' more.blog_date %}" class="mr-2 ur description text-white"><i class="fa fa-calendar" aria-hidden="true"></i> {{ more.blog_date}} </a>
-  <span>
-  <span class="activee text-white mr-2">
+ <span class="activee mr-2  mt-2 mb-2">
+  <a href="{% url 'date' more.blog_date %}" class="ur description text-white"><i class="fa fa-calendar" aria-hidden="true"></i> {{ more.blog_date}} </a>
+  </span>
+  <span class="activee text-white mr-2 ml-2  mt-2 mb-2">
    <i class="fa fa-bookmark" aria-hidden="true"></i>       
         {% for tag in more.blog_tags.all %}
         
-         <a href="{% url 'tags' tag.slug %}" class="mr-2 ur description text-white">  {{ tag.name}}, </a>
+         <a href="{% url 'tags' tag.slug %}" class="ur description text-white">  {{ tag.name}}, </a>
 
          {% endfor %}
 
          </span>
-         <span class="activee text-white mr-2">
+         <span class="activee text-white mr-2 ml-2  mt-2 mb-2">
 
           <a href="{% url 'author' more.blog_author %}" class="ur description text-white"><i class="fa fa-user" aria-hidden="true"></i>  {{ more.blog_author}} </a>
         </span>
-        <span class="activee text-white mr-2">
-         <span class="text-white"><i class="fa fa-eye" aria-hidden="true"></i>  {{more.blog_views}}</span>
-         </span>
+        <hr>
+
+        
                             
                             </p>
  
@@ -39,6 +39,11 @@
 
 
 <div class="mt-4 ml-2">
+
+<span class="activee text-white mr-2  mt-2 mb-2">
+         <span class="text-white"><i class="fa fa-eye" aria-hidden="true"></i>Total Views  ({{more.blog_views}})</span>
+         </span>
+         
 
 
 
@@ -79,7 +84,7 @@
 
 
 <!--total comment-->
-    <div class="card mb-4  mt-3 ">
+    <div class="card rounded mb-4  mt-3 ">
       <div class="card-body">
         <!-- comments -->
         <h2 id="heading">{{ comments.count }} Comments</h2>
@@ -92,11 +97,11 @@
 <!-- Comment with nested comments -->
 {% for comment in comments|dictsort:"created" %}
 
-<div class="card m-2"> <!--1-->
+<div class="card rounded m-2"> <!--1-->
 
     <div class="comment" > <!--2-->
 
-     <div class="card m-1 p-2">  <!--3-->
+     <div class="card rounded m-1 p-2">  <!--3-->
 
          <div class="d-flex flex-row comment-row m-t-0"> <!--4-->
                     <div class="p-2"><img src="{% static 'uu.png' %}" alt="user" width="50" class="rounded-circle">
@@ -120,7 +125,7 @@
 
       <div class="collapse" id="collapseExampler{{comment.id}}"> <!--1-->
 
-  <div class="card ml-4 mt-3 mb-3 mr-1  p-2 pl-3 ml-4"> <!--2-->
+  <div class="card rounded ml-4 mt-3 mb-3 mr-1  p-2 pl-3 ml-4"> <!--2-->
   <p id="heading">Add A Reply</p>
         <form action="{% url 'more_page' more.id more.blog_title%}" method="post">
             {{ comment_form.as_p }}
@@ -141,7 +146,7 @@
 
         {% for replay in comment.replies.all %}
         <!--show reply-->
-        <div class="card p-3 ml-4 mr-1 mt-3 "> <!--1-->
+        <div class="card rounded p-3 ml-4 mr-1 mt-3 "> <!--1-->
 
            <span class="ml-3">Reply</span>
 
